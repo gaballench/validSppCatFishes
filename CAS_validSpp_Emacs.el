@@ -22,20 +22,20 @@ C-<home> or M-x beginning-of-buffer
 ; all semicolons are comments in elisp! replace them with commas
 C-M-% ; RET , RET !
 
-; the field of interest is "Current status", but in order to homogenize text remove all newlines
-C-M-% C-q C-j RET RET !
+; the field of interest is "Current status", but in order to homogenize text remove all newlines replacing them with spaces
+C-M-% C-q C-j RET ' ' (space) RET !
 
 ; back to beginning of the buffer
 C-<home> or M-x beginning-of-buffer
 
 ; a bunch of multiple blank characters are messing with the info, reduce all of these to single spaces
-C-M-% [[:blank:]]+ RET ' ' (single space) RET !
+C-M-S-% [[:blank:]]+ RET ' ' (single space) RET !
 
 ; back to beginning of the buffer
 C-<home> or M-x beginning-of-buffer
 
 ; be sure that no further spaces are present
-C-M-% \s-+ RET ' ' (single space) RET !
+C-M-S-% \s-+ RET ' ' (single space) RET !
 
 ; back to beginning of the buffer
 C-<home> or M-x beginning-of-buffer
@@ -53,7 +53,7 @@ M-x keep-lines RET "Current status: Valid as" RET
 C-M-% "Current status: Valid as " RET RET !
 
 ; now remove starting with "Loricariidae" until end of line replacing the regexp with "nothing"
-C-M-% "Loricariidae.+$" RET RET !
+C-M-S-% "Loricariidae.+$" RET RET !
 
 ; first select all text and then sort the lines
 C-x h
